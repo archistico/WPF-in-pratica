@@ -33,7 +33,6 @@ All’interno trovi:
 
 ### File iniziali
 
-- [`00 - Scaletta_definitiva_libro_WPF.md`](./book_extract_revised/00%20-%20Scaletta_definitiva_libro_WPF.md)
 - [`00.00.00 - Prefazione.md`](./book_extract_revised/00.00.00%20-%20Prefazione.md)
 
 ### Parti del libro
