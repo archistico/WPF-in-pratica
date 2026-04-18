@@ -1,0 +1,1 @@
+dotnet run -- "E:\siti\2026 Libro WPF\github" "book_extract_revised" "README.md"
