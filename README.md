@@ -11,7 +11,6 @@ Il punto di arrivo del libro è una cassa di ristorante sviluppata come caso d�
 
 - [00 - Scaletta_definitiva_libro_WPF](https://github.com/archistico/WPF-in-pratica/blob/main/book_extract_revised/00%20-%20Scaletta_definitiva_libro_WPF.md)
 - [00.00.00 - Prefazione](https://github.com/archistico/WPF-in-pratica/blob/main/book_extract_revised/00.00.00%20-%20Prefazione.md)
-- [README](https://github.com/archistico/WPF-in-pratica/blob/main/book_extract_revised/README.md)
 
 ## Parte 01 — Fondamenta: capire WPF prima di usarlo
 
