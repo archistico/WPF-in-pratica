@@ -446,15 +446,15 @@ All’interno trovi:
 - [`04.05.07 - Progress reporting con percentuale reale`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.05.00%20-%20Multithreading%20e%20reattivit%C3%A0%20della%20UI/04.05.07%20-%20Progress%20reporting%20con%20percentuale%20reale.md)
 - [`04.05.08 - E le collezioni bindate`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.05.00%20-%20Multithreading%20e%20reattivit%C3%A0%20della%20UI/04.05.08%20-%20E%20le%20collezioni%20bindate.md)
 
-### [04.06.00 - Testare](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testare)
+### [04.06.00 - Testabilità del ViewModel](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testabilit%C3%A0%20del%20ViewModel)
 
-- [`04.06.01 - Perché MVVM rende testabile la logica della schermata`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testare/04.06.01%20-%20Perch%C3%A9%20MVVM%20rende%20testabile%20la%20logica%20della%20schermata.md)
-- [`04.06.02 - Che cosa ha senso testare davvero`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testare/04.06.02%20-%20Che%20cosa%20ha%20senso%20testare%20davvero.md)
-- [`04.06.03 - Primo esempio con xUnit`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testare/04.06.03%20-%20Primo%20esempio%20con%20xUnit.md)
-- [`04.06.04 - Testare proprietà derivate`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testare/04.06.04%20-%20Testare%20propriet%C3%A0%20derivate.md)
-- [`04.06.05 - Testare un comando`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testare/04.06.05%20-%20Testare%20un%20comando.md)
-- [`04.06.06 - Che cosa non va testato nella view`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testare/04.06.06%20-%20Che%20cosa%20non%20va%20testato%20nella%20view.md)
-- [`04.06.07 - Il valore pratico della testabilità`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testare/04.06.07%20-%20Il%20valore%20pratico%20della%20testabilit%C3%A0.md)
+- [`04.06.01 - Perché MVVM rende testabile la logica della schermata`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testabilit%C3%A0%20del%20ViewModel/04.06.01%20-%20Perch%C3%A9%20MVVM%20rende%20testabile%20la%20logica%20della%20schermata.md)
+- [`04.06.02 - Che cosa ha senso testare davvero`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testabilit%C3%A0%20del%20ViewModel/04.06.02%20-%20Che%20cosa%20ha%20senso%20testare%20davvero.md)
+- [`04.06.03 - Primo esempio con xUnit`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testabilit%C3%A0%20del%20ViewModel/04.06.03%20-%20Primo%20esempio%20con%20xUnit.md)
+- [`04.06.04 - Testare proprietà derivate`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testabilit%C3%A0%20del%20ViewModel/04.06.04%20-%20Testare%20propriet%C3%A0%20derivate.md)
+- [`04.06.05 - Testare un comando`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testabilit%C3%A0%20del%20ViewModel/04.06.05%20-%20Testare%20un%20comando.md)
+- [`04.06.06 - Che cosa non va testato nella view`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testabilit%C3%A0%20del%20ViewModel/04.06.06%20-%20Che%20cosa%20non%20va%20testato%20nella%20view.md)
+- [`04.06.07 - Il valore pratico della testabilità`](./book_extract_revised/PARTE%2004%20-%20Comportamento%20applicativo%20e%20struttura%20moderna/04.06.00%20-%20Testabilit%C3%A0%20del%20ViewModel/04.06.07%20-%20Il%20valore%20pratico%20della%20testabilit%C3%A0.md)
 
 ## [PARTE 05 - Professionalità, localizzazione e distribuzione](./book_extract_revised/PARTE%2005%20-%20Professionalit%C3%A0%2C%20localizzazione%20e%20distribuzione)
 
@@ -571,23 +571,23 @@ All’interno trovi:
 - [`06.06.04 - Scelte progettuali`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.06.00%20-%20La%20schermata%20completa/06.06.04%20-%20Scelte%20progettuali.md)
 - [`06.06.05 - Cosa migliorare in una versione successiva`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.06.00%20-%20La%20schermata%20completa/06.06.05%20-%20Cosa%20migliorare%20in%20una%20versione%20successiva.md)
 
-### [06.07.00 - Continuare](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Continuare)
+### [06.07.00 - Costruzione guidata del progetto](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Costruzione%20guidata%20del%20progetto)
 
-- [`06.07.01 - Prima finestra compilabile`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Continuare/06.07.01%20-%20Prima%20finestra%20compilabile.md)
-- [`06.07.02 - Inserire i tavoli e vedere il contesto cambiare`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Continuare/06.07.02%20-%20Inserire%20i%20tavoli%20e%20vedere%20il%20contesto%20cambiare.md)
-- [`06.07.03 - Aggiungere i piatti e far nascere il conto`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Continuare/06.07.03%20-%20Aggiungere%20i%20piatti%20e%20far%20nascere%20il%20conto.md)
-- [`06.07.04 - Far aggiornare quantità e totale`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Continuare/06.07.04%20-%20Far%20aggiornare%20quantit%C3%A0%20e%20totale.md)
-- [`06.07.05 - Introdurre i comandi e ripulire il code-behind`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Continuare/06.07.05%20-%20Introdurre%20i%20comandi%20e%20ripulire%20il%20code-behind.md)
-- [`06.07.06 - Rifinire la UI senza romperne la chiarezza`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Continuare/06.07.06%20-%20Rifinire%20la%20UI%20senza%20romperne%20la%20chiarezza.md)
-- [`06.07.07 - Versione completa del progetto`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Continuare/06.07.07%20-%20Versione%20completa%20del%20progetto.md)
-- [`06.07.08 - Cosa abbiamo costruito davvero`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Continuare/06.07.08%20-%20Cosa%20abbiamo%20costruito%20davvero.md)
+- [`06.07.01 - Prima finestra compilabile`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Costruzione%20guidata%20del%20progetto/06.07.01%20-%20Prima%20finestra%20compilabile.md)
+- [`06.07.02 - Inserire i tavoli e vedere il contesto cambiare`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Costruzione%20guidata%20del%20progetto/06.07.02%20-%20Inserire%20i%20tavoli%20e%20vedere%20il%20contesto%20cambiare.md)
+- [`06.07.03 - Aggiungere i piatti e far nascere il conto`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Costruzione%20guidata%20del%20progetto/06.07.03%20-%20Aggiungere%20i%20piatti%20e%20far%20nascere%20il%20conto.md)
+- [`06.07.04 - Far aggiornare quantità e totale`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Costruzione%20guidata%20del%20progetto/06.07.04%20-%20Far%20aggiornare%20quantit%C3%A0%20e%20totale.md)
+- [`06.07.05 - Introdurre i comandi e ripulire il code-behind`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Costruzione%20guidata%20del%20progetto/06.07.05%20-%20Introdurre%20i%20comandi%20e%20ripulire%20il%20code-behind.md)
+- [`06.07.06 - Rifinire la UI senza romperne la chiarezza`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Costruzione%20guidata%20del%20progetto/06.07.06%20-%20Rifinire%20la%20UI%20senza%20romperne%20la%20chiarezza.md)
+- [`06.07.07 - Versione completa del progetto`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Costruzione%20guidata%20del%20progetto/06.07.07%20-%20Versione%20completa%20del%20progetto.md)
+- [`06.07.08 - Cosa abbiamo costruito davvero`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.07.00%20-%20Costruzione%20guidata%20del%20progetto/06.07.08%20-%20Cosa%20abbiamo%20costruito%20davvero.md)
 
-### [06.08.00 - Continuare 2](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.08.00%20-%20Continuare%202)
+### [06.08.00 - Estensioni ed evoluzioni del progetto](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.08.00%20-%20Estensioni%20ed%20evoluzioni%20del%20progetto)
 
-- [`06.08.01 - Aggiungere categorie prodotto`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.08.00%20-%20Continuare%202/06.08.01%20-%20Aggiungere%20categorie%20prodotto.md)
-- [`06.08.02 - Salvare i dati con SQLite`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.08.00%20-%20Continuare%202/06.08.02%20-%20Salvare%20i%20dati%20con%20SQLite.md)
-- [`06.08.03 - Migliorare gli stati dei tavoli`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.08.00%20-%20Continuare%202/06.08.03%20-%20Migliorare%20gli%20stati%20dei%20tavoli.md)
-- [`06.08.04 - Preparare la strada a una versione più professionale`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.08.00%20-%20Continuare%202/06.08.04%20-%20Preparare%20la%20strada%20a%20una%20versione%20pi%C3%B9%20professionale.md)
+- [`06.08.01 - Aggiungere categorie prodotto`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.08.00%20-%20Estensioni%20ed%20evoluzioni%20del%20progetto/06.08.01%20-%20Aggiungere%20categorie%20prodotto.md)
+- [`06.08.02 - Salvare i dati con SQLite`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.08.00%20-%20Estensioni%20ed%20evoluzioni%20del%20progetto/06.08.02%20-%20Salvare%20i%20dati%20con%20SQLite.md)
+- [`06.08.03 - Migliorare gli stati dei tavoli`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.08.00%20-%20Estensioni%20ed%20evoluzioni%20del%20progetto/06.08.03%20-%20Migliorare%20gli%20stati%20dei%20tavoli.md)
+- [`06.08.04 - Preparare la strada a una versione più professionale`](./book_extract_revised/PARTE%2006%20-%20Caso%20d%E2%80%99uso%20finale/06.08.00%20-%20Estensioni%20ed%20evoluzioni%20del%20progetto/06.08.04%20-%20Preparare%20la%20strada%20a%20una%20versione%20pi%C3%B9%20professionale.md)
 
 ---
 
