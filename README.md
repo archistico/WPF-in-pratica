@@ -1,5 +1,7 @@
 # WPF in pratica
 
+![Cover](Cover-WPF-Emilie-Rollandin.png)
+
 ## Dalle fondamenta a un progetto desktop vero con XAML, binding, MVVM e caso d’uso finale
 
 Questo repository raccoglie il materiale di un libro pratico su **WPF (Windows Presentation Foundation)** pensato per accompagnare il lettore dalla base fino a una piccola applicazione desktop completa e credibile.
