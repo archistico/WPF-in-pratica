@@ -1,0 +1,416 @@
+﻿<Window x:Class="MiniCassa.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MiniCassa"
+        mc:Ignorable="d"
+        Title="MiniCassa"
+        Height="700"
+        Width="1200"
+        MinHeight="620"
+        MinWidth="1050"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BrushSfondoPagina}">
+
+    <Grid Margin="18">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230" MinWidth="210" />
+            <ColumnDefinition Width="18" />
+            <ColumnDefinition Width="360" MinWidth="320" />
+            <ColumnDefinition Width="18" />
+            <ColumnDefinition Width="*" MinWidth="430" />
+        </Grid.ColumnDefinitions>
+
+        <!-- ============================================================
+             COLONNA 1: TAVOLI
+             ============================================================ -->
+
+        <Border Grid.Column="0"
+                Style="{StaticResource CardStyle}">
+
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Top"
+                           Text="Tavoli"
+                           Style="{StaticResource TitoloSezioneStyle}" />
+
+                <ListBox ItemsSource="{Binding Tavoli}"
+                         SelectedItem="{Binding TavoloSelezionato}"
+                         Style="{StaticResource CleanListBoxStyle}"
+                         ItemContainerStyle="{StaticResource CleanListBoxItemStyle}"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="0,0,8,12"
+                                    Padding="12"
+                                    CornerRadius="10">
+
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="White" />
+                                        <Setter Property="BorderBrush" Value="{StaticResource BrushBordo}" />
+                                        <Setter Property="BorderThickness" Value="1" />
+
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsMouseOver}"
+                                                         Value="True">
+                                                <Setter Property="Background" Value="{StaticResource BrushHoverFill}" />
+                                            </DataTrigger>
+
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}"
+                                                         Value="True">
+                                                <Setter Property="Background" Value="{StaticResource BrushSelectedFill}" />
+                                                <Setter Property="BorderBrush" Value="{StaticResource BrushSelectedBorder}" />
+                                                <Setter Property="BorderThickness" Value="2" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Row="0"
+                                               Text="{Binding Nome}"
+                                               FontSize="16"
+                                               FontWeight="SemiBold"
+                                               Foreground="{StaticResource BrushTestoPrincipale}" />
+
+                                    <TextBlock Grid.Row="1"
+                                               Margin="0,5,0,0"
+                                               Text="{Binding NumeroRighe, Mode=OneWay, StringFormat=Righe: {0}}"
+                                               Style="{StaticResource TestoSecondarioStyle}" />
+
+                                    <TextBlock Grid.Row="2"
+                                               Margin="0,3,0,0"
+                                               Text="{Binding Totale, Mode=OneWay, StringFormat=Totale: {0:C}}"
+                                               FontSize="14"
+                                               FontWeight="SemiBold"
+                                               Foreground="{StaticResource BrushPrimario}" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+        </Border>
+
+
+        <!-- ============================================================
+             COLONNA 2: MENU
+             ============================================================ -->
+
+        <Border Grid.Column="2"
+                Style="{StaticResource CardStyle}">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="Menu"
+                           Style="{StaticResource TitoloSezioneStyle}" />
+
+                <TextBlock Grid.Row="1"
+                           Text="Seleziona un piatto e aggiungilo al conto"
+                           Style="{StaticResource TestoSecondarioStyle}"
+                           Margin="0,0,0,14" />
+
+                <ListBox Grid.Row="2"
+         ItemsSource="{Binding Piatti}"
+         SelectedItem="{Binding PiattoSelezionato}"
+         Style="{StaticResource CleanListBoxStyle}"
+         ItemContainerStyle="{StaticResource CleanListBoxItemStyle}"
+         ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="0,0,8,12"
+                    Padding="12"
+                    CornerRadius="10"
+                    Cursor="Hand">
+
+                                <Border.InputBindings>
+                                    <MouseBinding Gesture="LeftDoubleClick"
+                                  Command="{Binding DataContext.AggiungiPiattoCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                                  CommandParameter="{Binding}" />
+                                </Border.InputBindings>
+
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="White" />
+                                        <Setter Property="BorderBrush" Value="{StaticResource BrushBordo}" />
+                                        <Setter Property="BorderThickness" Value="1" />
+
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsMouseOver}"
+                                         Value="True">
+                                                <Setter Property="Background" Value="{StaticResource BrushHoverFill}" />
+                                            </DataTrigger>
+
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}"
+                                         Value="True">
+                                                <Setter Property="Background" Value="{StaticResource BrushSelectedFill}" />
+                                                <Setter Property="BorderBrush" Value="{StaticResource BrushSelectedBorder}" />
+                                                <Setter Property="BorderThickness" Value="2" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="{Binding Nome}"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource BrushTestoPrincipale}"
+                                   TextWrapping="Wrap" />
+
+                                        <TextBlock Text="{Binding Categoria}"
+                                   Margin="0,4,0,0"
+                                   Style="{StaticResource TestoSecondarioStyle}" />
+                                    </StackPanel>
+
+                                    <TextBlock Grid.Column="1"
+                               Text="{Binding Prezzo, StringFormat={}{0:C}}"
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource BrushPrimario}"
+                               VerticalAlignment="Center"
+                               Margin="12,0,0,0" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <Button Grid.Row="3"
+                        Content="Aggiungi al conto"
+                        Margin="0,14,0,0"
+                        HorizontalAlignment="Stretch"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Command="{Binding AggiungiPiattoCommand}" />
+            </Grid>
+        </Border>
+
+
+        <!-- ============================================================
+             COLONNA 3: CONTO
+             ============================================================ -->
+
+        <Border Grid.Column="4"
+                Style="{StaticResource CardStyle}">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Intestazione conto -->
+                <Grid Grid.Row="0"
+                      Margin="0,0,0,14">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="{Binding TitoloTavoloCorrente}"
+                                   Style="{StaticResource TitoloSezioneStyle}"
+                                   Margin="0" />
+
+                        <TextBlock Text="Gestisci quantità, righe e totale"
+                                   Style="{StaticResource TestoSecondarioStyle}"
+                                   Margin="0,4,0,0" />
+                    </StackPanel>
+
+                    <Button Grid.Column="1"
+                            Content="Svuota conto"
+                            Margin="12,0,0,0"
+                            Style="{StaticResource DangerButtonStyle}"
+                            Command="{Binding SvuotaContoCommand}" />
+                </Grid>
+
+                <!-- Lista conto -->
+                <Border Grid.Row="1"
+                        BorderBrush="{StaticResource BrushBordo}"
+                        BorderThickness="1"
+                        CornerRadius="10"
+                        Background="#FFFFFF"
+                        Padding="8">
+
+                    <ListBox ItemsSource="{Binding RigheContoCorrenti}"
+                             SelectedItem="{Binding RigaSelezionata}"
+                             Style="{StaticResource CleanListBoxStyle}"
+                             ItemContainerStyle="{StaticResource CleanListBoxItemStyle}"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0,0,8,12"
+                                        Padding="12"
+                                        CornerRadius="10">
+
+                                    <Border.Style>
+                                        <Style TargetType="Border">
+                                            <Setter Property="Background" Value="White" />
+                                            <Setter Property="BorderBrush" Value="{StaticResource BrushBordo}" />
+                                            <Setter Property="BorderThickness" Value="1" />
+
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsMouseOver}"
+                                                             Value="True">
+                                                    <Setter Property="Background" Value="{StaticResource BrushHoverFill}" />
+                                                </DataTrigger>
+
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}"
+                                                             Value="True">
+                                                    <Setter Property="Background" Value="{StaticResource BrushSelectedFill}" />
+                                                    <Setter Property="BorderBrush" Value="{StaticResource BrushSelectedBorder}" />
+                                                    <Setter Property="BorderThickness" Value="2" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="92" />
+                                            <ColumnDefinition Width="120" />
+                                            <ColumnDefinition Width="130" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Dati piatto -->
+                                        <StackPanel Grid.Column="0"
+                                                    VerticalAlignment="Center">
+
+                                            <TextBlock Text="{Binding Piatto.Nome}"
+                                                       FontSize="16"
+                                                       FontWeight="SemiBold"
+                                                       Foreground="{StaticResource BrushTestoPrincipale}"
+                                                       TextWrapping="Wrap" />
+
+                                            <TextBlock Margin="0,4,0,0"
+                                                       Style="{StaticResource TestoSecondarioStyle}">
+                                                <Run Text="Prezzo unitario: " />
+                                                <Run Text="{Binding Piatto.Prezzo, Mode=OneWay, StringFormat={}{0:C}}" />
+                                            </TextBlock>
+                                        </StackPanel>
+
+                                        <!-- Quantità -->
+                                        <StackPanel Grid.Column="1"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center">
+
+                                            <TextBlock Text="Qtà"
+                                                       FontSize="12"
+                                                       Foreground="{StaticResource BrushTestoSecondario}"
+                                                       HorizontalAlignment="Center" />
+
+                                            <TextBlock Text="{Binding Quantita}"
+                                                       FontSize="22"
+                                                       FontWeight="Bold"
+                                                       Foreground="{StaticResource BrushTestoPrincipale}"
+                                                       HorizontalAlignment="Center" />
+                                        </StackPanel>
+
+                                        <!-- Totale riga -->
+                                        <StackPanel Grid.Column="2"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Right">
+
+                                            <TextBlock Text="Totale"
+                                                       FontSize="12"
+                                                       Foreground="{StaticResource BrushTestoSecondario}"
+                                                       HorizontalAlignment="Right" />
+
+                                            <TextBlock Text="{Binding Totale, StringFormat={}{0:C}}"
+                                                       FontSize="18"
+                                                       FontWeight="Bold"
+                                                       Foreground="{StaticResource BrushPrimario}"
+                                                       HorizontalAlignment="Right" />
+                                        </StackPanel>
+
+                                        <!-- Azioni -->
+                                        <StackPanel Grid.Column="3"
+                                                    Orientation="Horizontal"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center">
+
+                                            <Button Content="-"
+                                                    Width="34"
+                                                    Height="30"
+                                                    Padding="0"
+                                                    Margin="0,0,6,0"
+                                                    Style="{StaticResource SecondaryButtonStyle}"
+                                                    Command="{Binding DataContext.DiminuisciQuantitaCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                                                    CommandParameter="{Binding}" />
+
+                                            <Button Content="+"
+                                                    Width="34"
+                                                    Height="30"
+                                                    Padding="0"
+                                                    Margin="0,0,6,0"
+                                                    Style="{StaticResource SecondaryButtonStyle}"
+                                                    Command="{Binding DataContext.AumentaQuantitaCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                                                    CommandParameter="{Binding}" />
+
+                                            <Button Content="X"
+                                                    Width="34"
+                                                    Height="30"
+                                                    Padding="0"
+                                                    Style="{StaticResource DangerButtonStyle}"
+                                                    Command="{Binding DataContext.RimuoviRigaCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                                                    CommandParameter="{Binding}" />
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+
+                <!-- Totale conto -->
+                <Border Grid.Row="2"
+                        Margin="0,14,0,0"
+                        Padding="14"
+                        CornerRadius="10"
+                        Background="#F9FAFB"
+                        BorderBrush="{StaticResource BrushBordo}"
+                        BorderThickness="1">
+
+                    <DockPanel>
+                        <TextBlock Text="Totale conto"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource BrushTestoPrincipale}"
+                                   DockPanel.Dock="Left" />
+
+                        <TextBlock Text="{Binding TotaleCorrente, StringFormat={}{0:C}}"
+                                   FontSize="30"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource BrushPrimario}"
+                                   HorizontalAlignment="Right"
+                                   DockPanel.Dock="Right" />
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
