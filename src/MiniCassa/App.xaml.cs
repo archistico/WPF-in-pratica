@@ -9,8 +9,8 @@ namespace MiniCassa;
 /// Classe principale dell'applicazione WPF.
 /// </summary>
 /// <remarks>
-/// Qui configuriamo le impostazioni globali dell'applicazione,
-/// tra cui la cultura italiana usata per formattare numeri, date e valute.
+/// Qui configuriamo le impostazioni globali dell'applicazione
+/// e decidiamo quale finestra mostrare all'avvio.
 /// </remarks>
 public partial class App : Application
 {
@@ -20,22 +20,41 @@ public partial class App : Application
     /// <param name="e">Argomenti dell'evento di avvio.</param>
     protected override void OnStartup(StartupEventArgs e)
     {
+        ConfiguraCulturaItaliana();
+
+        base.OnStartup(e);
+
+        // Evita che l'applicazione si chiuda quando viene chiuso lo splash screen.
+        ShutdownMode = ShutdownMode.OnExplicitShutdown;
+
+        SplashWindow splashWindow = new();
+        splashWindow.ShowDialog();
+
+        MainWindow mainWindow = new();
+        MainWindow = mainWindow;
+
+        // Da questo momento l'applicazione si chiude quando si chiude MainWindow.
+        ShutdownMode = ShutdownMode.OnMainWindowClose;
+
+        mainWindow.Show();
+    }
+
+    /// <summary>
+    /// Imposta la cultura italiana per numeri, date, valute e binding XAML.
+    /// </summary>
+    private static void ConfiguraCulturaItaliana()
+    {
         CultureInfo culturaItaliana = new("it-IT");
 
-        // Imposta la cultura dei thread.
         Thread.CurrentThread.CurrentCulture = culturaItaliana;
         Thread.CurrentThread.CurrentUICulture = culturaItaliana;
 
         CultureInfo.DefaultThreadCurrentCulture = culturaItaliana;
         CultureInfo.DefaultThreadCurrentUICulture = culturaItaliana;
 
-        // Imposta anche la Language predefinita degli elementi WPF.
-        // Questa è la parte importante per i binding con StringFormat={}{0:C}.
         FrameworkElement.LanguageProperty.OverrideMetadata(
             typeof(FrameworkElement),
             new FrameworkPropertyMetadata(
                 XmlLanguage.GetLanguage(culturaItaliana.IetfLanguageTag)));
-
-        base.OnStartup(e);
     }
 }
