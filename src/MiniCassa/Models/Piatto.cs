@@ -10,9 +10,8 @@ namespace MiniCassa.Models;
 /// In questa versione didattica il piatto contiene solo le informazioni essenziali:
 /// nome, categoria e prezzo.
 /// 
-/// In una versione più evoluta, questa classe potrebbe essere collegata a un database
-/// e contenere anche ingredienti, allergeni, disponibilità, reparto di preparazione
-/// o codice fiscale del prodotto.
+/// Abbiamo aggiunto anche una proprietà calcolata, <see cref="IconaCategoria"/>,
+/// utile per mostrare rapidamente nel menu un'icona associata alla categoria.
 /// </remarks>
 public class Piatto : INotifyPropertyChanged
 {
@@ -38,7 +37,6 @@ public class Piatto : INotifyPropertyChanged
 
     /// <summary>
     /// Nome visualizzato del piatto.
-    /// Esempio: "Pizza Margherita", "Spaghetti alla carbonara", "Acqua naturale".
     /// </summary>
     public string Nome
     {
@@ -48,12 +46,19 @@ public class Piatto : INotifyPropertyChanged
 
     /// <summary>
     /// Categoria del piatto.
-    /// Esempio: "Pizze", "Primi", "Bevande", "Dolci".
+    /// Esempi: "Pizze", "Primi", "Secondi", "Contorni", "Bevande", "Caffè".
     /// </summary>
     public string Categoria
     {
         get => _categoria;
-        set => SetProperty(ref _categoria, value);
+        set
+        {
+            if (SetProperty(ref _categoria, value))
+            {
+                // Se cambia la categoria, può cambiare anche l'icona associata.
+                OnPropertyChanged(nameof(IconaCategoria));
+            }
+        }
     }
 
     /// <summary>
@@ -63,6 +68,33 @@ public class Piatto : INotifyPropertyChanged
     {
         get => _prezzo;
         set => SetProperty(ref _prezzo, value);
+    }
+
+    /// <summary>
+    /// Restituisce un'icona semplice associata alla categoria del piatto.
+    /// </summary>
+    /// <remarks>
+    /// Usiamo emoji Unicode per evitare dipendenze esterne e mantenere
+    /// l'esempio semplice e immediato.
+    /// </remarks>
+    public string IconaCategoria
+    {
+        get
+        {
+            string categoriaNormalizzata = Categoria.Trim().ToLowerInvariant();
+
+            return categoriaNormalizzata switch
+            {
+                "pizze" => "🍕",
+                "primi" => "🍝",
+                "secondi" => "🍖",
+                "contorni" => "🥗",
+                "bevande" => "🥤",
+                "caffè" => "☕",
+                "caffe" => "☕",
+                _ => "🍽"
+            };
+        }
     }
 
     /// <summary>

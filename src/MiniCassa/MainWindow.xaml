@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MiniCassa"
         Height="700"
-        Width="1200"
+        Width="1350"
         MinHeight="620"
         MinWidth="1050"
         WindowStartupLocation="CenterScreen"
@@ -135,14 +135,14 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Border Margin="0,0,8,12"
-                    Padding="12"
-                    CornerRadius="10"
-                    Cursor="Hand">
+                Padding="12"
+                CornerRadius="10"
+                Cursor="Hand">
 
                                 <Border.InputBindings>
                                     <MouseBinding Gesture="LeftDoubleClick"
-                                  Command="{Binding DataContext.AggiungiPiattoCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
-                                  CommandParameter="{Binding}" />
+                              Command="{Binding DataContext.AggiungiPiattoCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                              CommandParameter="{Binding}" />
                                 </Border.InputBindings>
 
                                 <Border.Style>
@@ -153,12 +153,12 @@
 
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsMouseOver}"
-                                         Value="True">
+                                     Value="True">
                                                 <Setter Property="Background" Value="{StaticResource BrushHoverFill}" />
                                             </DataTrigger>
 
                                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=ListBoxItem}, Path=IsSelected}"
-                                         Value="True">
+                                     Value="True">
                                                 <Setter Property="Background" Value="{StaticResource BrushSelectedFill}" />
                                                 <Setter Property="BorderBrush" Value="{StaticResource BrushSelectedBorder}" />
                                                 <Setter Property="BorderThickness" Value="2" />
@@ -169,27 +169,38 @@
 
                                 <Grid>
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="12" />
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
 
-                                    <StackPanel Grid.Column="0">
+                                    <!-- Icona categoria -->
+                                    <TextBlock Grid.Column="0"
+                           Text="{Binding IconaCategoria}"
+                           FontSize="24"
+                           VerticalAlignment="Center"
+                           FontFamily="Segoe UI Emoji" />
+
+                                    <!-- Testi del piatto -->
+                                    <StackPanel Grid.Column="2">
                                         <TextBlock Text="{Binding Nome}"
-                                   FontWeight="SemiBold"
-                                   Foreground="{StaticResource BrushTestoPrincipale}"
-                                   TextWrapping="Wrap" />
+                               FontWeight="SemiBold"
+                               Foreground="{StaticResource BrushTestoPrincipale}"
+                               TextWrapping="Wrap" />
 
                                         <TextBlock Text="{Binding Categoria}"
-                                   Margin="0,4,0,0"
-                                   Style="{StaticResource TestoSecondarioStyle}" />
+                               Margin="0,4,0,0"
+                               Style="{StaticResource TestoSecondarioStyle}" />
                                     </StackPanel>
 
-                                    <TextBlock Grid.Column="1"
-                               Text="{Binding Prezzo, StringFormat={}{0:C}}"
-                               FontWeight="SemiBold"
-                               Foreground="{StaticResource BrushPrimario}"
-                               VerticalAlignment="Center"
-                               Margin="12,0,0,0" />
+                                    <!-- Prezzo -->
+                                    <TextBlock Grid.Column="3"
+                           Text="{Binding Prezzo, StringFormat={}{0:C}}"
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource BrushPrimario}"
+                           VerticalAlignment="Center"
+                           Margin="12,0,0,0" />
                                 </Grid>
                             </Border>
                         </DataTemplate>
@@ -290,94 +301,103 @@
 
                                     <Grid>
                                         <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="12" />
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="92" />
                                             <ColumnDefinition Width="120" />
                                             <ColumnDefinition Width="130" />
                                         </Grid.ColumnDefinitions>
 
+                                        <!-- Icona categoria -->
+                                        <TextBlock Grid.Column="0"
+               Text="{Binding Piatto.IconaCategoria}"
+               FontSize="24"
+               VerticalAlignment="Center"
+               FontFamily="Segoe UI Emoji" />
+
                                         <!-- Dati piatto -->
-                                        <StackPanel Grid.Column="0"
-                                                    VerticalAlignment="Center">
+                                        <StackPanel Grid.Column="2"
+                VerticalAlignment="Center">
 
                                             <TextBlock Text="{Binding Piatto.Nome}"
-                                                       FontSize="16"
-                                                       FontWeight="SemiBold"
-                                                       Foreground="{StaticResource BrushTestoPrincipale}"
-                                                       TextWrapping="Wrap" />
+                   FontSize="16"
+                   FontWeight="SemiBold"
+                   Foreground="{StaticResource BrushTestoPrincipale}"
+                   TextWrapping="Wrap" />
 
                                             <TextBlock Margin="0,4,0,0"
-                                                       Style="{StaticResource TestoSecondarioStyle}">
-                                                <Run Text="Prezzo unitario: " />
-                                                <Run Text="{Binding Piatto.Prezzo, Mode=OneWay, StringFormat={}{0:C}}" />
+                   Style="{StaticResource TestoSecondarioStyle}">
+            <Run Text="Prezzo unitario: " />
+            <Run Text="{Binding Piatto.Prezzo, Mode=OneWay, StringFormat={}{0:C}}" />
                                             </TextBlock>
                                         </StackPanel>
 
                                         <!-- Quantità -->
-                                        <StackPanel Grid.Column="1"
-                                                    VerticalAlignment="Center"
-                                                    HorizontalAlignment="Center">
+                                        <StackPanel Grid.Column="3"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
 
                                             <TextBlock Text="Qtà"
-                                                       FontSize="12"
-                                                       Foreground="{StaticResource BrushTestoSecondario}"
-                                                       HorizontalAlignment="Center" />
+                   FontSize="12"
+                   Foreground="{StaticResource BrushTestoSecondario}"
+                   HorizontalAlignment="Center" />
 
                                             <TextBlock Text="{Binding Quantita}"
-                                                       FontSize="22"
-                                                       FontWeight="Bold"
-                                                       Foreground="{StaticResource BrushTestoPrincipale}"
-                                                       HorizontalAlignment="Center" />
+                   FontSize="22"
+                   FontWeight="Bold"
+                   Foreground="{StaticResource BrushTestoPrincipale}"
+                   HorizontalAlignment="Center" />
                                         </StackPanel>
 
                                         <!-- Totale riga -->
-                                        <StackPanel Grid.Column="2"
-                                                    VerticalAlignment="Center"
-                                                    HorizontalAlignment="Right">
+                                        <StackPanel Grid.Column="4"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right">
 
                                             <TextBlock Text="Totale"
-                                                       FontSize="12"
-                                                       Foreground="{StaticResource BrushTestoSecondario}"
-                                                       HorizontalAlignment="Right" />
+                   FontSize="12"
+                   Foreground="{StaticResource BrushTestoSecondario}"
+                   HorizontalAlignment="Right" />
 
                                             <TextBlock Text="{Binding Totale, StringFormat={}{0:C}}"
-                                                       FontSize="18"
-                                                       FontWeight="Bold"
-                                                       Foreground="{StaticResource BrushPrimario}"
-                                                       HorizontalAlignment="Right" />
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="{StaticResource BrushPrimario}"
+                   HorizontalAlignment="Right" />
                                         </StackPanel>
 
                                         <!-- Azioni -->
-                                        <StackPanel Grid.Column="3"
-                                                    Orientation="Horizontal"
-                                                    HorizontalAlignment="Right"
-                                                    VerticalAlignment="Center">
+                                        <StackPanel Grid.Column="5"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center">
 
                                             <Button Content="-"
-                                                    Width="34"
-                                                    Height="30"
-                                                    Padding="0"
-                                                    Margin="0,0,6,0"
-                                                    Style="{StaticResource SecondaryButtonStyle}"
-                                                    Command="{Binding DataContext.DiminuisciQuantitaCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
-                                                    CommandParameter="{Binding}" />
+                Width="34"
+                Height="30"
+                Padding="0"
+                Margin="0,0,6,0"
+                Style="{StaticResource SecondaryButtonStyle}"
+                Command="{Binding DataContext.DiminuisciQuantitaCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                CommandParameter="{Binding}" />
 
                                             <Button Content="+"
-                                                    Width="34"
-                                                    Height="30"
-                                                    Padding="0"
-                                                    Margin="0,0,6,0"
-                                                    Style="{StaticResource SecondaryButtonStyle}"
-                                                    Command="{Binding DataContext.AumentaQuantitaCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
-                                                    CommandParameter="{Binding}" />
+                Width="34"
+                Height="30"
+                Padding="0"
+                Margin="0,0,6,0"
+                Style="{StaticResource SecondaryButtonStyle}"
+                Command="{Binding DataContext.AumentaQuantitaCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                CommandParameter="{Binding}" />
 
                                             <Button Content="X"
-                                                    Width="34"
-                                                    Height="30"
-                                                    Padding="0"
-                                                    Style="{StaticResource DangerButtonStyle}"
-                                                    Command="{Binding DataContext.RimuoviRigaCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
-                                                    CommandParameter="{Binding}" />
+                Width="34"
+                Height="30"
+                Padding="0"
+                Style="{StaticResource DangerButtonStyle}"
+                Command="{Binding DataContext.RimuoviRigaCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"
+                CommandParameter="{Binding}" />
                                         </StackPanel>
                                     </Grid>
                                 </Border>
